@@ -1,4 +1,4 @@
-# ection_1 project
+# section_1 project
 
 * 프로젝트 주제
   + 통계분석을 통한 지역별 비디오게임 판매량 비교분석
