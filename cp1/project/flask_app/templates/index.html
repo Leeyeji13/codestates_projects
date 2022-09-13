@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+      <style>
+    h1{
+      background : floralwhite;
+      text-align : center;
+      font-family: D2Coding;
+    }
+    div{
+      text-align : center;
+    }
+    form{
+      text-align : center;
+    }
+    select{
+        width: 100px;
+        padding: .5em .3em;
+        border: 1px solid #999;
+        font-family: inherit;
+        background: url('//arrow.jpg')
+        no-repeat 95% 50%;
+        border-radius: 0px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    select::-ms-expand {
+        display: none;
+    }
+  </style>
+  <title>국내 여행지 추천 "맞춤이"</title>
+  <link rel="icon" href="../static/image/small_logo.png">
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+      <img src="../static/image/small_logo.png" width="25" height="25">
+      <a class="navbar-brand" href="#">맞춤이</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <h1>
+      지역 선택
+    </h1>
+    <div>
+      <img src = "{{ url_for('static', filename='image/logo.jpg') }}" width = "35%" height = "auto">
+    </div>
+    <form action = "http://localhost:5000/post1" method = "POST">
+      <select name = "areaCode" ><!--지역을 고르는 부분-->
+        <option value = "전국" selected>전국</option>
+        <option value = "서울특별시" name="select">서울</option>
+        <option value = "인천광역시" name="select">인천</option>
+        <option value = "대전광역시" name="select">대전</option>
+        <option value = "대구광역시" name="select">대구</option>
+        <option value = "광주광역시" name="select">광주</option>
+        <option value = "부산광역시" name="select">부산</option>
+        <option value = "울산광역시" name="select">울산</option>
+        <option value = "세종특별자치시" name="select">세종</option>
+        <option value = "경기도" name="select">경기</option>
+        <option value = "강원도" name="select">강원</option>
+        <option value = "충청북도" name="select">충북</option>
+        <option value = "충청남도" name="select">충남</option>
+        <option value = "경북" name="select">경북</option>
+        <option value = "경상남도" name="select">경남</option>
+        <option value = "전라북도" name="select">전북</option>
+        <option value = "전라남도" name="select">전남</option>
+        <option value = "제주특별자치도" name="select">제주</option>
+      </select>
+      <input class="btn btn-outline-primary" type="submit" value = "다음">
+    </form>
+  </body>
+</html>

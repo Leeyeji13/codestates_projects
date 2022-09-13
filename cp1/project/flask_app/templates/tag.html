@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    </head>
+
+  <style>
+    h1{
+      background : floralwhite;
+      text-align : center;
+      font-family: D2Coding;
+    }
+
+    form{
+      text-align : center;
+    }
+
+    input[type="checkbox"]{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border:3px solid #707070;
+        position: relative;
+      }
+
+    input[type="submit"]{
+        width: 100px;
+        height: 50px;
+        border:3px solid #707070;
+        position: relative;
+        margin-top: 10px;
+      }
+
+    table{
+      margin-left:auto;
+      margin-right:auto;
+      border:none;
+    }
+
+    th{
+        padding: 20px 15px;
+        text-align: left;
+        font-weight: 500;
+        font-size: 20px;
+        color: #000;
+        text-transform: uppercase;
+    }
+
+    td{
+        padding: 15px;
+        text-align: left;
+        vertical-align: middle;
+        font-weight: 300;
+        font-size: 20px;
+        color: black;
+        border-bottom: 1px solid #CD5C5C;
+    }
+  </style>
+
+
+  <script type="text/javascript">
+    var maxChecked = 3;   //선택가능한 체크박스 갯수
+    var totalChecked = 0; // 설정 끝
+    
+    function CountChecked(field) {
+        if (field.checked) // input check 박스가 체크되면 
+            totalChecked += 1; // totalChecked 증가
+        else // 체크가 아니면
+            totalChecked -= 1; // totalChecked 감소
+    
+        if (totalChecked > maxChecked) { // totalchecked 수가 maxchecked수보다 크다면
+            alert ("최대 3개 까지만 가능합니다."); // 팝업창 띄움
+        field.checked = false;
+        totalChecked -= 1;
+        }
+    }
+    </script>
+
+  <title>
+    국내 여행지 추천 "맞춤이"
+  </title>
+
+  </head>
+  <body>
+     <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+      <img src="../static/image/small_logo.png" width="25" height="25" style="padding-right: 5px">
+      <a class="navbar-brand" href="#">맞춤이</a>
+
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <h1>
+      태그 선택
+    </h1>
+
+    <form action = "http://localhost:5000/post2" method = "POST">
+      <table><!--해시태그 선택부분-->      
+        <tr>
+          <td><label for="자연관광지" style="cursor:pointer"><input type="checkbox" name="tag" value="자연관광지" id="자연관광지" onclick="CountChecked(this)">#자연관광지</label></td>
+          <td><label for="체험관광지" style="cursor:pointer"><input type="checkbox" name="tag" value = "체험관광지" id="체험관광지" onclick="CountChecked(this)">#체험관광지</label></td>
+          <td><label for="역사관광지" style="cursor:pointer"><input type="checkbox" name="tag" value = "역사관광지" id="역사관광지" onclick="CountChecked(this)">#역사관광지</label></td>
+          <td><label for="건축" style="cursor:pointer"><input type="checkbox" name="tag" value = "건축" id="건축" onclick="CountChecked(this)">#건축</label></td>
+          <td><label for="휴양관광지" style="cursor:pointer"><input type="checkbox" name="tag" value = "휴양관광지" id="휴양관광지" onclick="CountChecked(this)">#휴양관광지</label></td>
+        </tr>
+
+        <tr>
+          <td><label for="문화시설" style="cursor:pointer"><input type="checkbox" name="tag" value = "문화시설" id="문화시설" onclick="CountChecked(this)">#문화시설</label></td>
+          <td><label for="육상레포츠" style="cursor:pointer"><input type="checkbox" name="tag" value = "육상레포츠" id="육상레포츠" onclick="CountChecked(this)">#육상레포츠</label></td>
+          <td><label for="수상레포츠" style="cursor:pointer"><input type="checkbox" name="tag" value = "수상레포츠" id="수상레포츠" onclick="CountChecked(this)">#수상레포츠</label></td>
+          <td><label for="숙박시설" style="cursor:pointer"><input type="checkbox" name="tag" value = "숙박시설" id="숙박시설" onclick="CountChecked(this)">#숙박시설</label></td>
+          <td><label for="쇼핑" style="cursor:pointer"><input type="checkbox" name="tag" value = "쇼핑" id="쇼핑" onclick="CountChecked(this)">#쇼핑</label></td>
+        </tr>
+
+        <tr>
+          <td><label for="관광자원" style="cursor:pointer"><input type="checkbox" name="tag" value = "관광자원" id="관광자원" onclick="CountChecked(this)">#관광자원</label></td>
+          <td><label for="산업관광지" style="cursor:pointer"><input type="checkbox" name="tag" value = "산업관광지" id="산업관광지" onclick="CountChecked(this)">#산업관광지</label></td>
+          <td><label for="레포츠소개" style="cursor:pointer"><input type="checkbox" name="tag" value = "레포츠소개" id="레포츠소개" onclick="CountChecked(this)">#레포츠소개</label></td>
+          <td><label for="복합레포츠" style="cursor:pointer"><input type="checkbox" name="tag" value = "복합레포츠" id="복합레포츠" onclick="CountChecked(this)">#복합레포츠</label></td>
+          <td><label for="음식점" style="cursor:pointer"><input type="checkbox" name="tag" value = "음식점" id="음식점" onclick="CountChecked(this)">#음식점</label></td>
+        </tr>
+
+        <tr>
+          <td><label for="항공레포츠" style="cursor:pointer"><input type="checkbox" name="tag" value = "항공레포츠" id="항공레포츠" onclick="CountChecked(this)">#항공레포츠</label></td>
+          <td><label for="바다" style="cursor:pointer"><input type="checkbox" name="tag" value = "바다" id="바다" onclick="CountChecked(this)">#바다</label></td>
+          <td><label for="조형물" style="cursor:pointer"><input type="checkbox" name="tag" value = "조형물" id="조형물" onclick="CountChecked(this)">#조형물</label></td>
+          <td><label for="강계곡" style="cursor:pointer"><input type="checkbox" name="tag" value = "강계곡" id="강계곡" onclick="CountChecked(this)">#강계곡</label></td>
+          <td><label for="사진맛집" style="cursor:pointer"><input type="checkbox" name="tag" value = "사진맛집" id="사진맛집" onclick="CountChecked(this)">#사진맛집</label></td>
+        </tr>
+
+        <tr>
+          <td><label for="이색" style="cursor:pointer"><input type="checkbox" name="tag" value = "이색" id="이색" onclick="CountChecked(this)">#이색</label></td>
+          <td><label for="전통" style="cursor:pointer"><input type="checkbox" name="tag" value = "전통" id="전통" onclick="CountChecked(this)">#전통</label></td>
+          <td><label for="종교" style="cursor:pointer"><input type="checkbox" name="tag" value = "종교" id="종교" onclick="CountChecked(this)">#종교</label></td>
+          <td><label for="물놀이" style="cursor:pointer"><input type="checkbox" name="tag" value = "물놀이" id="물놀이" onclick="CountChecked(this)">#물놀이</label></td>
+          <td><label for="공원" style="cursor:pointer"><input type="checkbox" name="tag" value = "공원" id="공원" onclick="CountChecked(this)">#공원</label></td>
+        </tr>
+
+        <tr>
+          <td><label for="기념" style="cursor:pointer"><input type="checkbox" name="tag" value = "기념" id="기념" onclick="CountChecked(this)">#기념</label></td>
+          <td><label for="예술" style="cursor:pointer"><input type="checkbox" name="tag" value = "예술" id="예술" onclick="CountChecked(this)">#예술</label></td>
+          <td><label for="놀거리" style="cursor:pointer"><input type="checkbox" name="tag" value = "놀거리" id="놀거리" onclick="CountChecked(this)">#놀거리</label></td>
+          <td><label for="건강" style="cursor:pointer"><input type="checkbox" name="tag" value = "건강" id="건강" onclick="CountChecked(this)">#건강</label></td>
+          <td><label for="농어촌" style="cursor:pointer"><input type="checkbox" name="tag" value = "농어촌" id="농어촌" onclick="CountChecked(this)">#농어촌</label></td>
+        </tr>
+
+        <tr>
+          <td><label for="함께" style="cursor:pointer"><input type="checkbox" name="tag" value = "함께" id="함께" onclick="CountChecked(this)">#함께</label></td>
+          <td><label for="시장" style="cursor:pointer"><input type="checkbox" name="tag" value = "시장" id="시장" onclick="CountChecked(this)">#시장</label></td>
+          <td><label for="공장단지" style="cursor:pointer"><input type="checkbox" name="tag" value = "공장단지" id="공장단지" onclick="CountChecked(this)">#공장단지</label></td>
+          <td><label for="교육" style="cursor:pointer"><input type="checkbox" name="tag" value = "교육" id="교육" onclick="CountChecked(this)">#교육</label></td>
+          <td><label for="플렉스" style="cursor:pointer"><input type="checkbox" name="tag" value = "플렉스" id="플렉스" onclick="CountChecked(this)">#플렉스</label></td>
+        </tr>
+
+      </table>
+      
+      <input class="btn btn-outline-primary" type="submit" value = "선택 완료">
+    </form>
+  </body>
+</html>

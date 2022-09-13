@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <style>
+    h1{
+      background : floralwhite;
+      text-align : center;
+      font-family: D2Coding;
+    }
+    div{
+      text-align : center;
+    }
+    form{
+      text-align : center;
+    }
+  </style>
+  <title>
+    국내 여행지 추천 "맞춤이"
+  </title>
+  </>
+  <body>
+  <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+      <img src="../static/image/small_logo.png" width="25" height="25">
+      <a class="navbar-brand" href="#">맞춤이</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5000">Home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <h1>
+      당신을 위한 여행지
+    </h1>
+    <div>
+      <table style="margin-left: auto; margin-right: auto;">
+        <tbody>
+            <tr><!첫번째 줄-->
+                <td>
+                    <div class = "shadow-sm p-4 mb-4 bg-white">
+                        <div class="card" style="width: 350px;">
+                            <div class="card-header">
+                                <h5 class="card-title">{{value.iloc[0].title}}</h5>
+                            </div>
+
+                                <img src="{{value.iloc[0].firstimage}}" class="card-img-top" onerror="this.src='../static/image/small_logo.png'">
+
+                            <div class="card-body">
+                                <p class="card-text"></p>
+                                <a href="https://search.naver.com/search.naver?query={{value.iloc[0].title}}" class="btn btn-success">Naver에 검색하기</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class = "shadow-sm p-4 mb-4 bg-white">
+                        <div class="card" style="width: 350px;">
+                            <div class="card-header">
+                                <h5 class="card-title">{{value.iloc[1].title}}</h5>
+                            </div>
+
+                                <img src="{{value.iloc[1].firstimage}}" class="card-img-top" onerror="this.src='../static/image/small_logo.png'">
+
+                            <div class="card-body">
+                                <p class="card-text"></p>
+                                <a href="https://search.naver.com/search.naver?query={{value.iloc[1].title}}" class="btn btn-success">Naver에 검색하기</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr><!두번째 줄-->
+                <td>
+                    <div class = "shadow-sm p-4 mb-4 bg-white">
+                        <div class="card" style="width: 350px;">
+                            <div class="card-header">
+                                <h5 class="card-title">{{value.iloc[2].title}}</h5>
+                            </div>
+
+                                <img src="{{value.iloc[2].firstimage}}" class="card-img-top" onerror="this.src='../static/image/small_logo.png'">
+
+                            <div class="card-body">
+                                <p class="card-text"></p>
+                                <a href="https://search.naver.com/search.naver?query={{value.iloc[2].title}}" class="btn btn-success">Naver에 검색하기</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+
+                <td>
+                    <div class = "shadow-sm p-4 mb-4 bg-white">
+                        <div class="card" style="width: 350px;">
+                            <div class="card-header">
+                                <h5 class="card-title">{{value.iloc[3].title}}</h5>
+                            </div>
+
+                                <img src="{{value.iloc[3].firstimage}}" class="card-img-top" onerror="this.src='../static/image/small_logo.png'">
+
+                            <div class="card-body">
+                                <p class="card-text"></p>
+                                <a href="https://search.naver.com/search.naver?query={{value.iloc[3].title}}" class="btn btn-success">Naver에 검색하기</a>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </body>
+</html>
